@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>Урок 2</title>
+
+        <script>
+
+           function greaterNum(a, b){
+               if (a < b) {
+                   return  b;
+               } else{
+                   return a;
+               }
+           }
+
+           function helloWorld(a){
+               if (a == 'es'){
+                   return 'Текст по-испански';
+               } else if (a == 'ru'){
+                   return 'Текст по-русски';
+               } else if (a == 'ua'){
+                   return 'Текст по-украински'
+               } else{
+                   return 'Текст по умолчанию'
+               }
+           }
+
+           function assignGrade(a){
+               if (a > 80){
+                   return 5;
+               } else if (a > 60){
+                   return 4;
+               } else if (a > 40){
+                   return 3
+               } else if (a > 20){
+                   return 2
+               } else{
+                   return 1
+               }
+           }
+
+        </script>
+
+    </head>
+
+    <body>
+        <script>
+
+           console.log('наибольшее число из чисел 4 и 8; ', greaterNum(4, 8));
+           console.log('наибольшее число из чисел 10 и 5; ',  greaterNum(10, 5));
+
+           console.log(helloWorld('es'));
+           console.log(helloWorld('ru'));
+           console.log(helloWorld('ua'));
+           console.log(helloWorld('other'))
+
+           console.log(assignGrade(40))
+           console.log(assignGrade(5))
+
+        </script>
+    </body>
+</html>
