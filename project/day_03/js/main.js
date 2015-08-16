@@ -27,15 +27,22 @@ work = {
     name: 'LTD engineering',
     chiefName: 'Vasily',
     chiefWorkDay:[8, 17]
+
 };
 
 // Создаем третий объект
 freeTime = {
     hobby: 'programming',
     hobbyDetail: 'lean js',
-    hobbyTime: function(person, work) {
-        var text = person.name + ' ' + this.hobbyDetail + ' after ' + work.chiefWorkDay[0];
+    hobbyTimeChief: function(work) {
+        var text = work.chiefName + ' ' + this.hobbyDetail + ' after ' + work.chiefWorkDay[1];
+        console.log( text );
+        return( text );
+    },
+    hobbyTimePerson: function(person, work) {
+        person.name = "Ivan Simeyko";
+        var text = person.name + ' ' + this.hobbyDetail + ' after ' + work.chiefWorkDay[1];
         console.log( text );
         return( text );
     }
-}
+};

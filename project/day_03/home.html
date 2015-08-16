@@ -18,7 +18,9 @@
         document.write(person.workDay(10, 12) + '<br>')
         person.goToWork(work);
 
-        document.write( freeTime.hobbyTime(person, work) );
+        document.write( freeTime.hobbyTimeChief( work) );
+        document.write( freeTime.hobbyTimePerson(person, work) );
+        console.log( person.name )
 
     </script>
 </body>
