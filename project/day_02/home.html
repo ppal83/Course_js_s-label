@@ -6,23 +6,49 @@
     <script>
         var a = ['t', 'e', 'a', 'm']
         var b = ['_', '_', '_', '_']
-        function guessLetter(letter){
-            if (letter in a){
-                return 'yes'
+
+        function guessLetter(letter) {
+            // действия если буква угадана
+            for (var i = 0; i < a.length; i++) {
+                if (a[i] === letter) {
+                    b[i] = letter;
+                    var message = 'Вы угадали букву! ';
+                    for (var k = 0; k < b.length; k++) {
+                        if (b[k] === '_'){
+                        message += 'Продолжаем игру. ';
+                        message += b.join(' ');
+                        return message;
+                        }
+                    }
+                    message += 'Поздравляем Вы выиграли!';
+                    return message
+                }
             }
+            // действия если буквы нет в слове
+            var mess = 'Вы не угадали букву! ';
+            mess += 'Продолжаем игру. ';
+            mess += b.join(' ');
+            return mess
         }
 
-
+        console.log(guessLetter('a'));
+        console.log(guessLetter('e'));
+        console.log(guessLetter('o'));
+        console.log(guessLetter('t'));
+        console.log(guessLetter('m'));
     </script>
+
 
 </head>
 <body>
     <script>
 
-       // пример условног оператора if
+       // learn.javascript.ru
+       // пример условного оператора if
+
         browser = 'Firefox';
 
-         if (browser == 'IE'){
+        if (browser == 'IE'){
             alert('О, да, у вас ИЕ');
         } else if (browser == 'Chrome' || 'Firefox') {
             alert('И эти браузеры мы поддержуем!!!')
@@ -31,9 +57,6 @@
         }
 
         // пример конструкции switch
-
-        var a = +prompt('a?', '');
-
 
     </script>
 
