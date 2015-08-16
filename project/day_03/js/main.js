@@ -12,12 +12,12 @@ person.say = function(say) {
 person.workDay = function(from, to) {
     from = from || 9;
     to = to || 18;
-    var text = this.name + ' working day is ' +  (to - from) + ' часов';
+    var text = this.name + ' working day is ' +  (to - from) + ' hours';
     console.log( text );
     return( text );
 };
 person.goToWork= function(work) {
-    var text = 'Your cheif, ' + work.chief_name + ' wait for you at ' + work.workDay[0];
+    var text = 'Your cheif, ' + work.chiefName + ' wait for you at ' + work.chiefWorkDay[0];
     console.log( text );
     return( text );
 };
@@ -25,13 +25,17 @@ person.goToWork= function(work) {
 //Создаем второй объект
 work = {
     name: 'LTD engineering',
-    chief_name: 'Vasily',
-    chiefWorkDay:[8, 17],
-    new_worker: function() {
-        var name = prompt('Как вас зовут?', 'Alelsey');
-        var age = prompt('Сколько вам лет', 25);
-        return[name, age]
-    }
+    chiefName: 'Vasily',
+    chiefWorkDay:[8, 17]
 };
 
 // Создаем третий объект
+freeTime = {
+    hobby: 'programming',
+    hobbyDetail: 'lean js',
+    hobbyTime: function(person, work) {
+        var text = person.name + ' ' + this.hobbyDetail + ' after ' + work.chiefWorkDay[0];
+        console.log( text );
+        return( text );
+    }
+}
