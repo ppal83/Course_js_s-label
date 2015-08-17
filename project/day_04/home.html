@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <title>Конструкторы и ООП</title>
+
+</head>
+<body>
+    <script src="js/main.js"></script>
+
+    <script>
+        // решение примеров с https://learn.javascript.ru/constructor-new
+        // Задача 1
+        var a = new A();
+        var b = new B();
+        console.log( a == b);   // false
+
+        // Задача 2
+        var calculator = new Calculator();
+        calculator.read();
+        alert( "Сумма=" + calculator.sum() );
+    </script>
+</body>
+</html>
