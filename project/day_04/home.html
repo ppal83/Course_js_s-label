@@ -8,8 +8,11 @@
 </head>
 <body>
     <script src="js/main.js"></script>
+    <script src="js/day_04.js"></script>
 
     <script>
+        console.log(var d = c());
+
         // решение примеров с https://learn.javascript.ru/constructor-new
         // Задача 1
         var a = new A();
@@ -20,6 +23,7 @@
         var calculator = new Calculator();
         calculator.read();
         alert( "Сумма=" + calculator.sum() );
+        alert( "Произведение=" + calculator.mul() );
     </script>
 </body>
 </html>

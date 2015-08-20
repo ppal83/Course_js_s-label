@@ -1,3 +1,28 @@
+var x = function(){
+    return ( 1 );
+};
+
+var y = function() {
+    return ( 'Hello world' );
+};
+
+var z = function() {
+    return ( true );
+};
+
+var a = function() {
+    return (nool) ;
+};
+
+var b = function() {
+    return ( [a, 'abs'] );
+};
+
+var c = function() {
+    return({a: '123'});
+};
+
+
 // решение примеров с https://learn.javascript.ru/constructor-new
 // Задача 1
 var obj = {};
