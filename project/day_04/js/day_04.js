@@ -55,8 +55,8 @@ function Magic(stick, name) {
 
 var harry = new Magic();
 var menInBlack = new Magic('desrt Eagle', 'Sam');
-harry.prototype__proto__.getName()=function(){
-    return ( 'Mr. Harry')
-};
+//harry.prototype__proto__.getName()=function(){
+    //return ( 'Mr. Harry')
+//}
 
 
