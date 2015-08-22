@@ -33,28 +33,32 @@ var app = function(arg) {
 };
 
 // Решение домашки
-background = function(color) {
-    if (color){
-        return ({background: color});
-    } else {
-        return ({background: 'black'});
+background = {
+    background: function(color) {
+        if(color) {
+            return ( color );
+        } else {
+            return ('black');
+        }
     }
 };
+console.log (background);
 
 function Square() {
     this.width = '100px';
     this.height = '100px';
-    this.color = 'black';
+    this.color = 'red';
     //this.text = 'This is, square!';
 
     this.render = function () {
         var squareDiv = document.createElement(('div'));
         squareDiv.style.width = this.width;
         squareDiv.style.height = this.height;
-        squareDiv.style.background = this.background;
+        squareDiv.style.background = this.background();
         squareDiv.style.color = this.color;
        // squareDiv.innerHTML = this.color;
         console.log('Выводим квадрат на страницу');
+        console.log(squareDiv);
         return (document.body.appendChild(squareDiv))
     };
 
@@ -87,7 +91,7 @@ function Circle() {
         var circleDiv = document.createElement('div')
         circleDiv.style.width = this.width;
         circleDiv.style.height = this.height;
-        circleDiv.style.background = this.background;
+        circleDiv.style.background = this.background();
         circleDiv.style.borderRadius = this.border;
         console.log('Выводим круг на страницу');
         return (document.body.appendChild(circleDiv))
