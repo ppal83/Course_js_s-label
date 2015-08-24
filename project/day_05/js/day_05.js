@@ -1,3 +1,14 @@
+/*
+// Пример создания HTML элемента
+var elem = document.createElement('p')
+    content = document.createTextNode( 'Это динамический элемент' );
+
+elem.appendChild( content );
+wrappedP = document.getElementById('wrapper');
+wrappedP.parentNode.appendChild(elem);
+console.log( elem );
+*/
+
 // Работа в аудитории
 
 // Функция копирования объектов
@@ -38,72 +49,161 @@ background = {
         if(color) {
             return ( color );
         } else {
-            return ('black');
+            return ('pink');
         }
+    },
+    move: function(where) {
+
     }
 };
-console.log (background);
 
+// Конструктоор объекта квадрат
 function Square() {
     this.width = '100px';
     this.height = '100px';
     this.color = 'red';
+     this.position = 'absolute';
+    this.top = '50px';
+    this.left = '450px';
+    this.element = document.createElement('div');
     //this.text = 'This is, square!';
 
     this.render = function () {
-        var squareDiv = document.createElement(('div'));
+        var squareDiv = this.element;
+
         squareDiv.style.width = this.width;
         squareDiv.style.height = this.height;
         squareDiv.style.background = this.background();
         squareDiv.style.color = this.color;
+        squareDiv.style.position = this.position;
+        squareDiv.style.top = this.top;
+        squareDiv.style.left = this.left;
+
        // squareDiv.innerHTML = this.color;
         console.log('Выводим квадрат на страницу');
-        console.log(squareDiv);
-        return (document.body.appendChild(squareDiv))
+        console.log( squareDiv );
+        document.body.appendChild(squareDiv)
     };
 
-    this.move = function(move) {
-        move = 'left' || 'right' || 'up' || 'down';
-        return move
+     this.move = function(where) {
+        console.log('Перемещаем квадрат');
+        var tempSize = 0;
+        switch(where) {
+          case 'down':
+            tempSize =  parseInt(this.element.style.top, 10);
+            tempSize = tempSize + 100;
+            this.element.style.top = tempSize + 'px';
+            break;
+          case 'up':
+            tempSize =  parseInt(this.element.style.top, 10);
+            tempSize = tempSize - 100;
+            this.element.style.top = tempSize + 'px';
+            break;
+          case 'left':
+            tempSize =  parseInt(this.element.style.left, 10);
+            tempSize = tempSize - 100;
+            this.element.style.left = tempSize + 'px';
+            break;
+          case 'rigth':
+          default:
+            tempSize =  parseInt(this.element.style.left, 10);
+            tempSize = tempSize + 100;
+            this.element.style.left = tempSize + 'px';
+        }
     };
-
-    /*
-    this.changeColor = function(color) {
-        background.__proto__background = 'color';
-
-        console.log('Меняем цвет квадрата, должен пометься и цвет круга');
-        return (document.body.modifiers(this.render()));
-    }
-    */
 }
 
 // Назначаем прототип
 Square.prototype = background;
 
+//Конструктор объекта круг
 function Circle() {
     this.width = '100px';
     this.height = '100px';
-    /*-moz-border-radius: 25px;
-    -webkit-border-radius: 25px;*/
     this.border = '50px';
+    this.position = 'absolute';
+    this.top = '50px';
+    this.left = '150px';
+    this.id = 'circle';
+    this.element = document.createElement( 'div' );
 
     this.render = function() {
-        var circleDiv = document.createElement('div')
+        var circleDiv = this.element;
+
         circleDiv.style.width = this.width;
         circleDiv.style.height = this.height;
         circleDiv.style.background = this.background();
         circleDiv.style.borderRadius = this.border;
+        circleDiv.style.position = this.position;
+        circleDiv.style.top = this.top;
+        circleDiv.style.left = this.left;
+        circleDiv.style.id= this.id;
+
         console.log('Выводим круг на страницу');
-        return (document.body.appendChild(circleDiv))
+        console.log(circleDiv);
+        document.body.appendChild(circleDiv)
+    };
+
+    this.move = function(where) {
+        console.log('Перемещаем круг');
+        var tempSize = 0;
+        switch(where) {
+          case 'down':
+            tempSize =  parseInt(this.element.style.top, 10);
+            tempSize = tempSize + 100;
+            this.element.style.top = tempSize + 'px';
+            break;
+          case 'up':
+            tempSize =  parseInt(this.element.style.top, 10);
+            tempSize = tempSize - 100;
+            this.element.style.top = tempSize + 'px';
+            break;
+          case 'left':
+            tempSize =  parseInt(this.element.style.left, 10);
+            tempSize = tempSize - 100;
+            this.element.style.left = tempSize + 'px';
+            break;
+          case 'rigth':
+          default:
+            tempSize =  parseInt(this.element.style.left, 10);
+            tempSize = tempSize + 100;
+            this.element.style.left = tempSize + 'px';
+        }
     }
 }
 
 //Назначаем прототип
 Circle.prototype = background;
 
+//Создаем объекты
 var square = new Square();
 var circle = new Circle();
+square.render();
+circle.render();
+circle.move('down');
+square.move('down');
 
+
+/*
+//Анимация и таймеры (разбор темы)
+var delay = 1000;
+i = 0;
+
+var startTimer = function() {
+    if (i < 5) {
+        console.log( 'функция startTimer сработала ' + i + ' раз' );
+        setTimeout(startTimer, delay);
+    }
+    i++;
+};
+
+var timer = setTimeout(startTimer, delay); //вызываем функцию, 3000 - задержка 3 секудны
+
+//alert('Alert!!!');
+
+//clearTimeout(timer);  // останавливаем таймер
+
+*/
 
 /*
 // Создаем объект в JS, который описывает в HTML квадрат
