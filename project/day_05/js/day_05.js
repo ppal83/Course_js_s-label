@@ -46,11 +46,7 @@ var app = function(arg) {
 // Решение домашки
 background = {
     background: function(color) {
-        if(color) {
-            return ( color );
-        } else {
-            return ('pink');
-        }
+        return color || 'pink';
     },
     move: function(where) {
         console.log('Перемещаем фигуру');
@@ -91,7 +87,7 @@ function Square() {
     this.element = document.createElement('div');
     //this.text = 'This is, square!';
 
-    this.render = function () {
+    this.render = function () {                           //move this method to proto?
         var squareDiv = this.element;
 
         squareDiv.style.width = this.width;
@@ -123,7 +119,7 @@ function Circle() {
     this.id = 'circle';
     this.element = document.createElement( 'div' );
 
-    this.render = function() {
+    this.render = function() {                                //move this method to proto?
         var circleDiv = this.element;
 
         circleDiv.style.width = this.width;
