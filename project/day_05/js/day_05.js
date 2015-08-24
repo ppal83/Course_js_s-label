@@ -53,40 +53,7 @@ background = {
         }
     },
     move: function(where) {
-
-    }
-};
-
-// Конструктоор объекта квадрат
-function Square() {
-    this.width = '100px';
-    this.height = '100px';
-    this.color = 'red';
-     this.position = 'absolute';
-    this.top = '50px';
-    this.left = '450px';
-    this.element = document.createElement('div');
-    //this.text = 'This is, square!';
-
-    this.render = function () {
-        var squareDiv = this.element;
-
-        squareDiv.style.width = this.width;
-        squareDiv.style.height = this.height;
-        squareDiv.style.background = this.background();
-        squareDiv.style.color = this.color;
-        squareDiv.style.position = this.position;
-        squareDiv.style.top = this.top;
-        squareDiv.style.left = this.left;
-
-       // squareDiv.innerHTML = this.color;
-        console.log('Выводим квадрат на страницу');
-        console.log( squareDiv );
-        document.body.appendChild(squareDiv)
-    };
-
-     this.move = function(where) {
-        console.log('Перемещаем квадрат');
+        console.log('Перемещаем фигуру');
         var tempSize = 0;
         switch(where) {
           case 'down':
@@ -110,6 +77,35 @@ function Square() {
             tempSize = tempSize + 100;
             this.element.style.left = tempSize + 'px';
         }
+    }
+};
+
+// Конструктоор объекта квадрат
+function Square() {
+    this.width = '100px';
+    this.height = '100px';
+    this.color = 'red';
+    this.position = 'absolute';
+    this.top = '50px';
+    this.left = '450px';
+    this.element = document.createElement('div');
+    //this.text = 'This is, square!';
+
+    this.render = function () {
+        var squareDiv = this.element;
+
+        squareDiv.style.width = this.width;
+        squareDiv.style.height = this.height;
+        squareDiv.style.background = this.background();
+        squareDiv.style.color = this.color;
+        squareDiv.style.position = this.position;
+        squareDiv.style.top = this.top;
+        squareDiv.style.left = this.left;
+
+       // squareDiv.innerHTML = this.color;
+        console.log('Выводим квадрат на страницу');
+        console.log( squareDiv );
+        document.body.appendChild(squareDiv)
     };
 }
 
@@ -143,33 +139,6 @@ function Circle() {
         console.log(circleDiv);
         document.body.appendChild(circleDiv)
     };
-
-    this.move = function(where) {
-        console.log('Перемещаем круг');
-        var tempSize = 0;
-        switch(where) {
-          case 'down':
-            tempSize =  parseInt(this.element.style.top, 10);
-            tempSize = tempSize + 100;
-            this.element.style.top = tempSize + 'px';
-            break;
-          case 'up':
-            tempSize =  parseInt(this.element.style.top, 10);
-            tempSize = tempSize - 100;
-            this.element.style.top = tempSize + 'px';
-            break;
-          case 'left':
-            tempSize =  parseInt(this.element.style.left, 10);
-            tempSize = tempSize - 100;
-            this.element.style.left = tempSize + 'px';
-            break;
-          case 'rigth':
-          default:
-            tempSize =  parseInt(this.element.style.left, 10);
-            tempSize = tempSize + 100;
-            this.element.style.left = tempSize + 'px';
-        }
-    }
 }
 
 //Назначаем прототип
